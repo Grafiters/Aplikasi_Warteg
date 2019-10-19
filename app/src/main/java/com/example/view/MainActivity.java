@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity{
         mAdapter = new MakananAdapter(makananList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(mAdapter);
 
         recyclerView.addOnItemTouchListener(new RecyclerClickListener(getApplicationContext(), recyclerView, new RecyclerViewClick() {
@@ -54,21 +53,21 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void prepareMakanan() {
-        Makanan makanan = new Makanan("tongseng", "12000");
+        Makanan makanan = new Makanan("tongseng", "12000", "Tongseng makanan khas pedesaan yang baisa disajikan saat masih hangat");
         makananList.add(makanan);
-        makanan = new Makanan("nasi goreng", "12000");
+        makanan = new Makanan("nasi goreng", "12000", "Nasgor yang sudah menjaid makanan bagi semua kalangan");
         makananList.add(makanan);
-        makanan = new Makanan("ikan kakap", "12000");
+        makanan = new Makanan("ikan kakap", "12000", "Makanan ini adalah jenis menu terbaru dari warteg kami dan mempunyai rasa yang tidak kalah enaknya");
         makananList.add(makanan);
-        makanan = new Makanan("tempe", "12000");
+        makanan = new Makanan("tempe", "12000", "Tempe adalah makanan khas dari seluruh indonesia yang mempunyai beberapa manfaat yang sangat tinggi");
         makananList.add(makanan);
-        makanan = new Makanan("tahu", "12000");
+        makanan = new Makanan("tahu", "12000", "Jenis makanan seperti tempe namun lebih empuk dan padat berisi");
         makananList.add(makanan);
-        makanan = new Makanan("lele", "12000");
+        makanan = new Makanan("lele", "12000", "Menu yang satu ini adalah salah satu menu yang menjadi favorit bagi para orang");
         makananList.add(makanan);
-        makanan = new Makanan("nasi", "12000");
+        makanan = new Makanan("nasi", "12000", "Makanan yang selalu membuat orang ketagihan karna warnanya dan rasanya");
         makananList.add(makanan);
-        makanan = new Makanan("kecambah", "12000");
+        makanan = new Makanan("kecambah", "12000", "Jenis makanan yang biasanya digunakan untuk pelengkap makan");
         makananList.add(makanan);
 
         mAdapter.notifyDataSetChanged();

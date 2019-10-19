@@ -1,11 +1,12 @@
 package com.example.view;
 
 public class Makanan {
-    private String nama, harga;
+    private String nama, harga, desc;
 
-    public Makanan(String nama, String harga){
+    public Makanan(String nama, String harga, String desc){
         this.nama = nama;
         this.harga = harga;
+        this.desc = desc;
     }
 
     public void setNama(String nama) {
@@ -22,5 +23,13 @@ public class Makanan {
 
     public String getHarga() {
         return harga;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getDesc() {
+        return desc;
     }
 }

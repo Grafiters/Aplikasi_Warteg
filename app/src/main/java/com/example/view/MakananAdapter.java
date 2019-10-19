@@ -45,6 +45,7 @@ public class MakananAdapter extends RecyclerView.Adapter<MakananAdapter.MyViewHo
         holder.nama.setText(makanan.getNama());
         holder.harga.setText(makanan.getHarga());
 
+
     }
 
     @Override
