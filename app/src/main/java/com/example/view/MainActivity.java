@@ -35,17 +35,18 @@ public class MainActivity extends AppCompatActivity{
         recyclerView.addOnItemTouchListener(new RecyclerClickListener(getApplicationContext(), recyclerView, new RecyclerViewClick() {
             @Override
             public void onClick(View view, int position) {
-//                Intent intent = new Intent(MainActivity.this, detail_menu.class);
-//                startActivity(intent);
-                Toast.makeText(getApplicationContext(), makananList.get(position).getNama() + " is click pressed!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, detail_menu.class);
+                startActivity(intent);
+
+//                Toast.makeText(getApplicationContext(), makananList.get(position).getNama() + " is click pressed!", Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onLong(View view, int position) {
-                Intent intent = new Intent(MainActivity.this, detail_menu.class);
-                startActivity(intent);
-//                Toast.makeText(getApplicationContext(), makananList.get(position).getNama() + " is long pressed!", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(MainActivity.this, detail_menu.class);
+//                startActivity(intent);
+                Toast.makeText(getApplicationContext(), makananList.get(position).getNama() + " is long pressed!", Toast.LENGTH_SHORT).show();
             }
         }));
 

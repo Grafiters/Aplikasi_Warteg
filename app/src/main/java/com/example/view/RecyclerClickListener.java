@@ -15,25 +15,14 @@ public class RecyclerClickListener implements RecyclerView.OnItemTouchListener {
 
     public RecyclerClickListener(Context context, final RecyclerView recyclerView, final RecyclerViewClick clickListener){
         this.recyclerViewClick = clickListener;
-        gestureDetector = new GestureDetector(context, new GestureDetector.OnGestureListener() {
-            @Override
-            public boolean onDown(MotionEvent e) {
-                return false;
-            }
+        gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener(){
 
             @Override
             public void onShowPress(MotionEvent e) {
-
-            }
-
-            @Override
-            public boolean onSingleTapUp(MotionEvent e) {
-                return false;
-            }
-
-            @Override
-            public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-                return false;
+                View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
+                if (child != null && clickListener != null){
+                    recyclerViewClick.onClick(child, recyclerView.getChildAdapterPosition(child));
+                }
             }
 
             @Override
@@ -44,10 +33,6 @@ public class RecyclerClickListener implements RecyclerView.OnItemTouchListener {
                 }
             }
 
-            @Override
-            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-                return false;
-            }
         });
 
     }
