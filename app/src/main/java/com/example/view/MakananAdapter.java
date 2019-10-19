@@ -1,5 +1,7 @@
 package com.example.view;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import java.util.List;
 public class MakananAdapter extends RecyclerView.Adapter<MakananAdapter.MyViewHolder> {
 
     private List<Makanan> makananList;
+    private Context mContext;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView nama,harga;
@@ -26,6 +29,7 @@ public class MakananAdapter extends RecyclerView.Adapter<MakananAdapter.MyViewHo
 
     public MakananAdapter(List<Makanan> makananList){
         this.makananList = makananList;
+
     }
 
     @NonNull
@@ -36,10 +40,11 @@ public class MakananAdapter extends RecyclerView.Adapter<MakananAdapter.MyViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         Makanan makanan = makananList.get(position);
         holder.nama.setText(makanan.getNama());
         holder.harga.setText(makanan.getHarga());
+
     }
 
     @Override

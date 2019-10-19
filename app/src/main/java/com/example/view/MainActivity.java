@@ -5,12 +5,15 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private List<Makanan> makananList = new ArrayList<>();
     private RecyclerView recyclerView;
@@ -28,6 +31,23 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(mAdapter);
+
+        recyclerView.addOnItemTouchListener(new RecyclerClickListener(getApplicationContext(), recyclerView, new RecyclerViewClick() {
+            @Override
+            public void onClick(View view, int position) {
+//                Intent intent = new Intent(MainActivity.this, detail_menu.class);
+//                startActivity(intent);
+                Toast.makeText(getApplicationContext(), makananList.get(position).getNama() + " is click pressed!", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onLong(View view, int position) {
+                Intent intent = new Intent(MainActivity.this, detail_menu.class);
+                startActivity(intent);
+//                Toast.makeText(getApplicationContext(), makananList.get(position).getNama() + " is long pressed!", Toast.LENGTH_SHORT).show();
+            }
+        }));
 
         prepareMakanan();
     }
@@ -52,4 +72,5 @@ public class MainActivity extends AppCompatActivity {
 
         mAdapter.notifyDataSetChanged();
     }
+
 }
