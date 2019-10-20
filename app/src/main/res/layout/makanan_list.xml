@@ -40,6 +40,11 @@
                     android:layout_height="wrap_content"
                     android:textSize="26dp"
                     android:id="@+id/harga"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="26dp"
+                    android:id="@+id/desc"/>
             </LinearLayout>
 
     </LinearLayout>

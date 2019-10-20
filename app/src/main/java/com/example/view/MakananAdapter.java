@@ -17,13 +17,14 @@ public class MakananAdapter extends RecyclerView.Adapter<MakananAdapter.MyViewHo
     private List<Makanan> makananList;
     private Context mContext;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView nama,harga;
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+        public TextView nama,harga,desc;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             nama = (TextView) itemView.findViewById(R.id.nama);
             harga = (TextView) itemView.findViewById(R.id.harga);
+            desc = (TextView) itemView.findViewById(R.id.desc);
         }
     }
 
@@ -44,6 +45,7 @@ public class MakananAdapter extends RecyclerView.Adapter<MakananAdapter.MyViewHo
         Makanan makanan = makananList.get(position);
         holder.nama.setText(makanan.getNama());
         holder.harga.setText(makanan.getHarga());
+        holder.desc.setText(makanan.getDesc());
 
 
     }
